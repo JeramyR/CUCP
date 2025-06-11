@@ -1,12 +1,27 @@
 import { Routes, Route } from "react-router";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import Services from "./pages/Services";
+import GetInvolved from "./pages/GetInvolved";
+import News from "./pages/News";
 import "./App.css";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <>
+      <Navbar />
+
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/news" element={<News />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 
