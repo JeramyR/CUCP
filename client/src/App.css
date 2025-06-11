@@ -1,7 +1,16 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
+body {
+ background-color: #FDF1DC;
+ font-family: "Archivo Black", sans-serif;
+}
 
+.container {
+  margin: 1rem;
+  text-align: center;
+}
+
+
+.archivo-black-regular {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
