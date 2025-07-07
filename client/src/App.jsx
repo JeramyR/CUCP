@@ -5,6 +5,7 @@ import AboutUs from "./pages/AboutUs";
 import Services from "./pages/Services";
 import GetInvolved from "./pages/GetInvolved";
 import News from "./pages/News";
+import Footer from "./components/Footer";
 import "./App.css";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
           <Route path="/news" element={<News />} />
         </Routes>
       </main>
+      <Footer />    
+      
     </>
   );
 }
