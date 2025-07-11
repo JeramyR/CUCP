@@ -1,147 +1,129 @@
+import { Link } from "react-router";
 import "../style/Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#861C1C] text-[#2B2B2B] py-6 mt-8">
-      <div className="w-3/4 mx-auto flex flex-col md:flex-row items-center justify-between">
-        <div className="flex flex-col gap-8 md:items-start mb-4 md:mb-0">
-          <div>
-            <span className="text-xl">
-              &copy; {new Date().getFullYear()} CUTTIN UP COMMUNITY PROJECT.
-            </span>
-          </div>
-          <div>
-            <p> Fresh Cuts. Fresh Starts. Stronger Communities.</p>
-          </div>
-          <div className="flex flex-row justify-between w-full items-center">
-            <p> PRIVACY POLICY</p>
-               <a href="https://givebutter.com/ywmoe5" target="_blank">
-              <button className="mt-2 bg-[#861C1C] text-[#2B2B2B] border p-4 rounded-full hover:bg-[#861C1C] hover:text-white transition-colors cursor-pointer">
-                Donate
-              </button>
+  
+    <footer className="bg-black text-white px-6 py-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        {/* Brand & Description */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-4">
+            Cuttin Up <br />
+            Community <br />
+            Project
+          </h2>
+          <p className="text-sm mb-8">
+            Fresh Cuts.
+            <br /> Fresh Starts.
+            <br />
+            Stronger Communities.
+          </p>
+          
+          <div className="text-xs space-y-1">
+            <a href="#" className="hover:underline block">
+              PRIVACY POLICY
             </a>
           </div>
-          <div>
-         
-          </div>
         </div>
-        <div className="items-start flex flex-col gap-5 mb-4 md:mb-0">
-          <div>
-            <div>
-              <p>GET IN TOUCH</p>
-            </div>
-          </div>
-          <div className="text-sm">
-            <div className="items-start flex flex-col gap-2">
-              <p>Monday-Friday</p>
-              <p>10am-4pm MST</p>
-              <p>1641 E McDowell Rd, #B-5</p>
-              <p> Phoenix, AZ 85006, US</p>
-            </div>
-          </div>
-          <div className="text-sm">
-            <div className="items-start flex flex-col">
+
+        {/* Get in Touch */}
+        <div>
+          <h3 className="text-sm font-semibold mb-4">GET IN TOUCH</h3>
+          <p className="text-xs mb-4">
+            MON–FRIDAY
+            <br />
+            10AM–4PM EST
+          </p>
+          <ul className="text-xs space-y-2">
+            <li>
               <a
                 href="https://www.instagram.com/cuttinupcommunityproject/"
                 target="_blank"
+                className="hover:underline"
               >
                 Instagram
               </a>
+            </li>
+            <li>
               <a
                 href="https://www.facebook.com/cuttinupcommunityphx/"
                 target="_blank"
+                className="hover:underline"
               >
                 Facebook
               </a>
-              <a
-                href="https://www.youtube.com/@CuttinUpCommunityProject"
-                target="_blank"
-              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@CuttinUpCommunityProject" target="_blank" className="hover:underline">
                 YouTube
               </a>
-              <a
-                href="https://www.linkedin.com/company/cuttinupphx"
-                target="_blank"
-              >
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/cuttinupphx" target="_blank" className="hover:underline">
                 LinkedIn
               </a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
-        <div className="items-start flex flex-col gap-11">
-          <div>
-            <div>
-              <p>JOIN OUR MAILING LIST</p>
-            </div>
-          </div>
-          <div className="text-sm">
-            <div className="flex flex-col items-start">
-              <label>First Name</label>
-              <input
-                type="email"
-                placeholder="Enter your first name"
-                className="p-2 rounded-md border-b-2 border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#FDF1DC] transition-colors"
-              />
-            </div>{" "}
-            <div className="flex flex-col items-start">
-              <label>Email</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="p-2 rounded-md border-b-2 border-[#2B2B2B] focus:outline-none focus:ring-2 focus:ring-[#FDF1DC] transition-colors "
-              />
-            </div>
-            <div className="flex flex-col items-start">
-              <button className="mt-2 bg-[#861C1C] text-[#2B2B2B] border p-4 rounded-full hover:bg-[#861C1C] hover:text-white transition-colors cursor-pointer">
-                Subscribe
-              </button>
-            </div>
-          </div>
+
+        {/* Mailing List */}
+        <div>
+          <h3 className="text-sm font-semibold mb-4">JOIN OUR MAILING LIST</h3>
+          <form className="flex flex-col space-y-4">
+            <input
+              type="text"
+              placeholder="FIRST NAME"
+              className="bg-transparent border-b border-white text-sm p-2 focus:outline-none"
+            />
+            <input
+              type="email"
+              placeholder="EMAIL"
+              className="bg-transparent border-b border-white text-sm p-2 focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="rounded-full border border-white p-4 w-max text-sm hover:bg-white hover:text-black transition cursor-pointer"
+            >
+              SUBSCRIBE
+            </button>
+          </form>
         </div>
-        <div className="items-start flex flex-col gap-12 ">
-          <div>
-            <div>
-              <p>EXPLORE</p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-4 items-start text-sm">
-            <div>
-              <a href="/" className="hover:text-white transition-colors">
-                Home
-              </a>
-            </div>
-            <div>
-              <a
-                href="/about-us"
-                className="hover:text-white transition-colors"
-              >
-                About Us
-              </a>
-            </div>
-            <div>
-              <a
-                href="/services"
-                className="hover:text-white transition-colors"
-              >
-                Programs + Services
-              </a>
-            </div>
-            <div>
-              <a
-                href="/get-involved"
-                className="hover:text-white transition-colors"
-              >
-                Get Involved
-              </a>
-            </div>
-            <div>
-              <a href="/news" className="hover:text-white transition-colors">
-                News
-              </a>
-            </div>
-          </div>
+
+        {/* Explore */}
+        <div>
+          <h3 className="text-sm font-semibold mb-4">EXPLORE</h3>
+          <ul className="text-xs space-y-2 mb-6">
+            <li>
+              <Link to="/" className="hover:underline">
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link to="/about-us" className="hover:underline">
+                ABOUT US
+              </Link>
+            </li>
+            <li>
+              <Link to="/services" className="hover:underline">
+                PROGRAMS + SERVICES
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/get-involved" className="hover:underline">
+                GET INVOLVED
+              </Link>
+            </li>
+            <li>
+              <Link to="/news" className="hover:underline">
+                NEWS
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
+     
     </footer>
   );
 };
