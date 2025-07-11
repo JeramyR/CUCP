@@ -6,6 +6,7 @@ import Services from "./pages/Services";
 import GetInvolved from "./pages/GetInvolved";
 import News from "./pages/News";
 import Footer from "./components/Footer";
+import Donate from "./components/Donate";
 import "./App.css";
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
           <Route path="/news" element={<News />} />
         </Routes>
       </main>
-      <Footer />    
-      
+      <Donate />
+      <Footer />
     </>
   );
 }
