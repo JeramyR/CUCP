@@ -14,15 +14,14 @@ function App() {
     <>
       <Navbar />
 
-      <main className="container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/get-involved" element={<GetInvolved />} />
-          <Route path="/news" element={<News />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/get-involved" element={<GetInvolved />} />
+        <Route path="/news" element={<News />} />
+      </Routes>
+
       <Donate />
       <Footer />
     </>
