@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router";
-import { CiMenuFries } from "react-icons/ci";
-import { FaTimes } from "react-icons/fa";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 const menuVariants = {
   hidden: { x: "100%", opacity: 0 },
@@ -26,10 +23,17 @@ const itemVariants = {
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [currentPath, setCurrentPath] = useState("/");
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleNavigation = (path) => {
+    setCurrentPath(path);
+    scrollToTop();
+    setIsOpen(false);
   };
 
   const navLinks = [
@@ -40,7 +44,16 @@ const Navbar = () => {
     { to: "/news", label: "News" },
   ];
 
-  const NAVBAR_HEIGHT = 80; // adjust if your navbar height changes!
+  const NAVBAR_HEIGHT = 80;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -49,7 +62,6 @@ const Navbar = () => {
       document.body.style.overflow = "";
     }
 
-    // Cleanup in case component unmounts while open
     return () => {
       document.body.style.overflow = "";
     };
@@ -74,133 +86,188 @@ const Navbar = () => {
     };
 
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <header className="archivo-black-regular relative z-50">
       {/* Top Nav */}
-      <nav className="flex justify-between items-center text-[#FDF1DC] px-6 md:px-12 py-4 bg-[#861C1C] h-[80px]">
-        {/* Logo */}
-        <div className="flex items-center">
-          <img
-            className="h-10"
-            src={new URL("../assets/large-logo.png", import.meta.url).href}
-            alt="Logo"
-          />
-        </div>
+      <nav
+        className={`fixed top-0 left-0 right-0 text-white px-6 md:px-12 py-4 h-[80px] transition-all duration-300 ${
+          isScrolled
+            ? "bg-gray-900/95 backdrop-blur-lg shadow-2xl"
+            : "bg-gradient-to-r from-gray-900 to-gray-900 backdrop-blur-sm"
+        }`}
+      >
+        {/* Desktop Layout: Book Button | Logo | Nav Links */}
+        <div className="hidden lg:flex items-center justify-between w-full">
+          {/* Left: Book Appointment Button */}
+          <div className="flex-1">
+            <div className="hover:scale-105 transition-transform duration-300">
+              <button
+                onClick={() => handleNavigation("/book-appointment")}
+                className="relative bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50"
+              >
+                Book Appointment
+              </button>
+            </div>
+          </div>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8 text-[18px]">
-          <ul className="flex space-x-8">
-            {navLinks.map((link) => (
-              <Link key={link.to} to={link.to}>
-                <li className="relative group list-none cursor-pointer">
-                  <span
+          {/* Center: Logo */}
+          <div className="flex-1 flex justify-center">
+            <div
+              className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+              onClick={() => handleNavigation("/")}
+            >
+              <Link to="/">
+                <img
+                  className="h-12 w-auto rounded-lg "
+                  src={
+                    new URL("../assets/large-logo.png", import.meta.url).href
+                  }
+                  alt="Cuttin Up Community Project Logo"
+                />
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: Nav Links */}
+          <div className="flex-1 flex justify-end">
+            <ul className="flex space-x-8 text-[16px] font-medium">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="relative group list-none cursor-pointer"
+                >
+                  <button
+                    onClick={() => handleNavigation(link.to)}
                     className={`
-            inline-block transition-all duration-300 
-            ${
-              location.pathname === link.to
-                ? "text-[#FDF1DC]"
-                : "group-hover:-translate-y-1"
-            }
-            
-          `}
+                      inline-block transition-all duration-300 hover:text-orange-400 hover:-translate-y-1 focus:outline-none cursor-pointer
+                      ${
+                        currentPath === link.to
+                          ? "text-orange-400"
+                          : "text-white"
+                      }
+                    `}
                   >
                     {link.label}
-                  </span>
+                  </button>
 
-                  {/* Underline */}
+                  {/* Animated underline */}
                   <span
-                    className={`absolute left-0 -bottom-0.5 h-[1.5px] bg-[#FDF1DC] transition-all duration-300 ease-in-out
-            ${
-              location.pathname === link.to
-                ? "w-full"
-                : "w-0 group-hover:w-full"
-            }
-          `}
-                  ></span>
-                </li>
-              </Link>
-            ))}
-          </ul>
+                    className={`absolute left-0 -bottom-1 h-[2px] bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full transition-all duration-300 ${
+                      currentPath === link.to
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    }`}
+                  />
+                </Link>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Hamburger/X Toggle */}
-        <button
-          className="lg:hidden flex flex-col justify-center items-center w-8 h-8 relative z-50 cursor-pointer"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <motion.span
-            className="block w-8 h-0.5 bg-[#FDF1DC] rounded absolute"
-            initial={false}
-            animate={{
-              rotate: isOpen ? 45 : 0,
-              y: isOpen ? 0 : -6,
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          />
-          <motion.span
-            className="block w-8 h-0.5 bg-[#FDF1DC] rounded absolute"
-            initial={false}
-            animate={{
-              opacity: isOpen ? 0 : 1,
-            }}
-            transition={{ duration: 0.2 }}
-          />
-          <motion.span
-            className="block w-8 h-0.5 bg-[#FDF1DC] rounded absolute"
-            initial={false}
-            animate={{
-              rotate: isOpen ? -45 : 0,
-              y: isOpen ? 0 : 6,
-            }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          />
-        </button>
+        {/* Mobile Layout: Logo Left | Menu Button Right */}
+        <div className="flex lg:hidden justify-between items-center w-full">
+          {/* Logo */}
+          <div
+            className="flex items-center cursor-pointer hover:scale-105 transition-transform duration-300"
+            onClick={() => handleNavigation("/")}
+          >
+            <Link to="/">
+              <img
+                className="h-12 w-auto"
+                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0idXJsKCNncmFkaWVudDApIi8+CjxwYXRoIGQ9Ik0xMiA4SDI4VjMySDEyVjhaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjIiLz4KPHBhdGggZD0iTTE2IDEySDE2VjI4SDE2VjEyWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTI0IDEySDE2VjI4SDI0VjEyWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwIiB4MT0iMCIgeTE9IjAiIHgyPSI0MCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGOTczMTYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkJCRjI0Ci8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHN2Zz4K"
+                alt="Cuttin Up Community Project Logo"
+              />
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="flex flex-col justify-center items-center w-8 h-8 relative z-50 cursor-pointer focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            <span
+              className={`block w-8 h-0.5 bg-white rounded absolute transform transition-all duration-300 ${
+                isOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
+              }`}
+            />
+            <span
+              className={`block w-8 h-0.5 bg-white rounded absolute transition-all duration-300 ${
+                isOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`block w-8 h-0.5 bg-white rounded absolute transform transition-all duration-300 ${
+                isOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
+              }`}
+            />
+          </button>
+        </div>
       </nav>
 
-      {/* Mobile Menu (Framer Motion) */}
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            {/* Drawer */}
-            <motion.div
-              className="fixed left-0 right-0 h-full bg-[#861C1C] z-50 text-[#FDF1DC] shadow-xl"
-              variants={menuVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              style={{ top: `${NAVBAR_HEIGHT}px` }} // starts BELOW navbar
-            >
-              <ul className="flex flex-col items-center mt-10 text-xl space-y-6">
+      {/* Mobile Menu */}
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+            onClick={() => setIsOpen(false)}
+          />
+
+          {/* Drawer */}
+          <div
+            className={`fixed left-0 right-0 h-full bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 z-50 text-white shadow-2xl transform transition-transform duration-300 ${
+              isOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+            style={{ top: `${NAVBAR_HEIGHT}px` }}
+          >
+            <div className="flex flex-col items-center mt-12 space-y-8">
+              {/* Mobile Navigation Links */}
+              <ul className="flex flex-col items-center text-xl space-y-6">
                 {navLinks.map((link) => (
-                  <motion.li
-                    key={link.to}
-                    variants={itemVariants}
-                    className={`cursor-pointer ${
-                      link.donate
-                        ? "border border-[#FDF1DC] px-6 py-2 rounded hover:bg-[#FDF1DC] hover:text-[#861C1C] transition"
-                        : "hover:text-[#FDF1DC]"
-                    }`}
-                  >
-                    <Link
-                      to={link.to}
-                      onClick={() => {
-                        scrollToTop();
-                        setIsOpen(false);
-                      }}
+                  <Link key={link.to} to={link.to} className="cursor-pointer">
+                    <button
+                      onClick={() => handleNavigation(link.to)}
+                      className={`
+                        relative px-6 py-3 rounded-full transition-all duration-300 hover:bg-white/10 focus:outline-none
+                        ${
+                          currentPath === link.to
+                            ? "text-orange-400 bg-white/10"
+                            : "text-white hover:text-orange-400"
+                        }
+                      `}
                     >
                       {link.label}
-                    </Link>
-                  </motion.li>
+                    </button>
+                  </Link>
                 ))}
               </ul>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+
+              {/* Mobile Book Appointment Button */}
+              <div className="mt-8">
+                <button
+                  onClick={() => handleNavigation("/book-appointment")}
+                  className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50"
+                >
+                  📅 Book Your Appointment
+                </button>
+              </div>
+
+              {/* Mobile Contact Info */}
+              <div className="mt-8 text-center text-gray-300">
+                <p className="text-sm">Ready for a fresh start?</p>
+                <p className="text-xs mt-1">Call us: (555) 123-4567</p>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Spacer to prevent content from hiding behind fixed navbar */}
+      <div className="h-[80px]"></div>
     </header>
   );
 };

@@ -98,7 +98,8 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-800 text-white">
+      <section className="pt-24 pb-16 bg-[#861c1c] text-white">
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
@@ -114,7 +115,7 @@ const Services = () => {
       </section>
 
       {/* Quick Navigation */}
-      <section className="py-8 bg-gray-50 sticky top-20 z-40">
+      <section className="py-8  bg-[#FDF1DC] sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {services.map((service) => (
@@ -140,7 +141,7 @@ const Services = () => {
           <section
             key={service.id}
             id={service.id}
-            className={`py-16 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+            className={`py-16  bg-[#FDF1DC]`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -230,7 +231,7 @@ const Services = () => {
       </section>
 
       {/* Quick Links Footer */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12  bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {services.map((service) => (

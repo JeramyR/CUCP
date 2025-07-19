@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-800 flex items-center relative overflow-hidden">
+      <section className="min-h-screen bg-[#861c1c] flex items-center relative overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-10"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 relative">
@@ -78,7 +78,7 @@ const Home = () => {
       </section>
 
       {/* Our Story Section */}
-      <section id="about" className="py-20 bg-gray-50">
+      <section id="about" className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -205,7 +205,7 @@ const Home = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#FDF1DC]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-12 rounded-3xl shadow-xl text-center">
             <h2 className="text-4xl font-bold text-gray-900 mb-8">

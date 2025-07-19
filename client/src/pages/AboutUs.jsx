@@ -4,12 +4,12 @@ const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-12 sm:py-16 md:py-20">
+      <section className="bg-[#861c1c] text-white py-12 sm:py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-            About Cuttin Up Community Project
+           <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+            About Us 
           </h1>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
             Empowering justice-impacted individuals through culturally grounded barbering, 
             cosmetology training, and holistic community support
           </p>
@@ -49,7 +49,7 @@ const AboutUs = () => {
       </section>
 
       {/* What We Do */}
-      <section className="py-12 sm:py-16 bg-gradient-to-r from-gray-50 to-slate-100">
+      <section className="py-12 sm:py-16 bg-[#FDF1DC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">What We Do</h2>
@@ -123,7 +123,7 @@ const AboutUs = () => {
       </section>
 
       {/* How it Started */}
-      <section className="py-12 sm:py-16 bg-white">
+      <section className="py-12 sm:py-16 bg-[#FDF1DC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">How it Started</h2>
@@ -188,7 +188,7 @@ const AboutUs = () => {
       </section>
 
       {/* Meet the Team */}
-      <section className="py-12 sm:py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="py-12 sm:py-16 bg-[#FDF1DC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">Meet the Team</h2>

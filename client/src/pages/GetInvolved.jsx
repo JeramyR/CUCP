@@ -73,24 +73,24 @@ const GetInvolved = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="min-h-screen bg-gradient-to-br from-orange-400 via-yellow-400 to-orange-500 flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/30 z-10"></div>
+      <section className="min-h-screen bg-[#861c1c] flex items-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
         
-        {/* Animated background elements */}
+        {/* Animated background elements
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse"></div>
           <div className="absolute top-40 right-20 w-24 h-24 bg-white/10 rounded-full blur-xl animate-pulse delay-300"></div>
           <div className="absolute bottom-40 left-1/4 w-40 h-40 bg-white/10 rounded-full blur-xl animate-pulse delay-700"></div>
-        </div>
+        </div> */}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 relative">
           <div className="text-center text-white animate-fade-in">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent leading-tight">
                 Join the 
               </span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent leading-tight">
                 Movement
               </span>
             </h1>
@@ -103,13 +103,13 @@ const GetInvolved = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => scrollToSection('volunteer')}
-                className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 transform hover:scale-105 transition-transform duration-300"
               >
                 Start Volunteering
               </button>
               <button 
                 onClick={() => scrollToSection('partner')}
-                className="bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/30 transform hover:scale-105 transition-transform duration-300"
               >
                 Become a Partner
               </button>
@@ -119,7 +119,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Ways to Help Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -185,7 +185,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Volunteer Opportunities */}
-      <section id="volunteer" className="py-20 bg-white">
+      <section id="volunteer" className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -233,7 +233,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Partnership Section */}
-      <section id="partner" className="py-20 bg-gray-50">
+      <section id="partner" className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -278,7 +278,7 @@ const GetInvolved = () => {
       </section>
 
       {/* Community Impact */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -318,9 +318,9 @@ const GetInvolved = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-20 bg-[#861c1c] text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-orange-400">
             Ready to Make a Difference?
           </h2>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">

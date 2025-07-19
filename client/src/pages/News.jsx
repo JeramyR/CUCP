@@ -127,9 +127,9 @@ const News = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-indigo-600 via-purple-600 to-purple-800 text-white">
+      <section className="pt-24 pb-16 bg-[#861c1c] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
@@ -145,7 +145,7 @@ const News = () => {
       </section>
 
       {/* Search and Filter Section */}
-      <section className="py-8 bg-gray-50">
+      <section className="py-8 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
             {/* Search Bar */}
@@ -184,7 +184,7 @@ const News = () => {
 
       {/* Featured Items */}
       {featuredItems.length > 0 && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-[#FDF1DC]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               ⭐ Featured Stories
@@ -244,7 +244,7 @@ const News = () => {
       )}
 
       {/* Regular News Grid */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Latest Updates
@@ -304,7 +304,7 @@ const News = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-20 bg-[#861c1c] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-6 text-orange-400">
@@ -320,7 +320,7 @@ const News = () => {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
               />
               <button className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                 Subscribe
