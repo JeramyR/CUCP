@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router";
 
 const menuVariants = {
   hidden: { x: "100%", opacity: 0 },
@@ -24,14 +24,15 @@ const itemVariants = {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentPath, setCurrentPath] = useState("/");
+  const location = useLocation(); // Get current location from router
+  const currentPath = location.pathname; // Use actual pathname instead of state
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleNavigation = (path) => {
-    setCurrentPath(path);
+    // Remove setCurrentPath since we're using location.pathname
     scrollToTop();
     setIsOpen(false);
   };
@@ -44,7 +45,8 @@ const Navbar = () => {
     { to: "/news", label: "News" },
   ];
 
-  const NAVBAR_HEIGHT = 80;
+  // Updated to match the actual navbar height
+  const NAVBAR_HEIGHT = 105;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,7 +95,7 @@ const Navbar = () => {
     <header className="archivo-black-regular relative z-50">
       {/* Top Nav */}
       <nav
-        className={`fixed top-0 left-0 right-0 text-white px-6 md:px-12 py-4 h-[80px] transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 text-white px-6 md:px-12 py-4 h-[105px] transition-all duration-300 ${
           isScrolled
             ? "bg-gray-900/95 backdrop-blur-lg shadow-2xl"
             : "bg-gradient-to-r from-gray-900 to-gray-900 backdrop-blur-sm"
@@ -106,7 +108,7 @@ const Navbar = () => {
             <div className="hover:scale-105 transition-transform duration-300">
               <button
                 onClick={() => handleNavigation("/book-appointment")}
-                className="relative bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50"
+                className="relative bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 py-3 rounded-full text-sm shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 cursor-pointer"
               >
                 Book Appointment
               </button>
@@ -121,7 +123,7 @@ const Navbar = () => {
             >
               <Link to="/">
                 <img
-                  className="h-12 w-auto rounded-lg "
+                  className="h-18 w-auto rounded-lg "
                   src={
                     new URL("../assets/large-logo.png", import.meta.url).href
                   }
@@ -177,8 +179,10 @@ const Navbar = () => {
           >
             <Link to="/">
               <img
-                className="h-12 w-auto"
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0idXJsKCNncmFkaWVudDApIi8+CjxwYXRoIGQ9Ik0xMiA4SDI4VjMySDEyVjhaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjIiLz4KPHBhdGggZD0iTTE2IDEySDE2VjI4SDE2VjEyWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPHBhdGggZD0iTTI0IDEySDE2VjI4SDI0VjEyWiIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwIiB4MT0iMCIgeTE9IjAiIHgyPSI0MCIgeTI9IjQwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGOTczMTYiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkJCRjI0Ci8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHN2Zz4K"
+                className="h-19 w-auto rounded-lg"
+                 src={
+                    new URL("../assets/large-logo.png", import.meta.url).href
+                  }
                 alt="Cuttin Up Community Project Logo"
               />
             </Link>
@@ -267,7 +271,7 @@ const Navbar = () => {
       )}
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <div className="h-[80px]"></div>
+      <div className="h-[105px]"></div>
     </header>
   );
 };

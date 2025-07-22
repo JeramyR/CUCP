@@ -1,8 +1,14 @@
 import { Link } from "react-router";
 
 const Footer = () => {
+  const handleNavClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-  
     <footer className="bg-gray-900 text-white px-6 py-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand & Description */}
@@ -18,7 +24,7 @@ const Footer = () => {
             <br />
             Stronger Communities.
           </p>
-          
+                   
           <div className="text-xs space-y-1">
             <a href="#" className="hover:underline block">
               PRIVACY POLICY
@@ -94,28 +100,28 @@ const Footer = () => {
           <h3 className="text-sm font-semibold mb-4">EXPLORE</h3>
           <ul className="text-xs space-y-2 mb-6">
             <li>
-              <Link to="/" className="hover:underline">
+              <Link to="/" className="hover:underline" onClick={handleNavClick}>
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/about-us" className="hover:underline">
+              <Link to="/about-us" className="hover:underline" onClick={handleNavClick}>
                 ABOUT US
               </Link>
             </li>
             <li>
-              <Link to="/services" className="hover:underline">
+              <Link to="/services" className="hover:underline" onClick={handleNavClick}>
                 PROGRAMS + SERVICES
               </Link>
             </li>
-
+             
             <li>
-              <Link to="/get-involved" className="hover:underline">
+              <Link to="/get-involved" className="hover:underline" onClick={handleNavClick}>
                 GET INVOLVED
               </Link>
             </li>
             <li>
-              <Link to="/news" className="hover:underline">
+              <Link to="/news" className="hover:underline" onClick={handleNavClick}>
                 NEWS
               </Link>
             </li>

@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const Home = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,18 +14,28 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  // function to handle navigation to About Us page
+  const navigateToBrianStory = () => {
+    navigate("/about-us#how-it-started");
+    setTimeout(() => {
+      const element = document.getElementById("how-it-started");
+      if (element) {
+        const elementPosition = element.offsetTop;
+        const offsetPosition = elementPosition - 60; // Adjust 100 to your header height + some padding
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
   };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="min-h-screen bg-[#861c1c] flex items-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -66,10 +78,11 @@ const Home = () => {
 
             <div className="animate-fade-in">
               <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-3xl p-8 shadow-2xl transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-500">
-                <div className="w-full h-80 bg-white/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-white/30">
-                  <span className="text-white text-xl font-medium">
-                    [Hero Image: Barbershop/Community Space]
-                  </span>
+                <div className="w-full rounded-2xl flex items-center justify-center ">
+                  <img
+                    className="w-200 h-80 object-cover rounded-2xl"
+                    src={new URL("../assets/hero.jpg", import.meta.url).href}
+                  ></img>
                 </div>
               </div>
             </div>
@@ -125,7 +138,10 @@ const Home = () => {
                 second chances, mentorship, and holistic support. His belief?
                 Everyone deserves to thrive.
               </p>
-              <button className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              <button
+                onClick={navigateToBrianStory}
+                className="cursor-pointer bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              >
                 Read Brian's Full Story
               </button>
             </div>
@@ -162,7 +178,7 @@ const Home = () => {
               </p>
               <a
                 href="/book-services"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Book Now
               </a>
@@ -179,7 +195,7 @@ const Home = () => {
               </p>
               <a
                 href="/newsletter-signup"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Join our Crew
               </a>
@@ -195,7 +211,7 @@ const Home = () => {
               </p>
               <a
                 href="/donate"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
               >
                 Donate Today
               </a>
@@ -204,23 +220,29 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-20 bg-[#FDF1DC]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white p-12 rounded-3xl shadow-xl text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8">
-              Voices from Our Community
-            </h2>
-            <div className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white p-8 rounded-2xl">
-              <p className="text-lg leading-relaxed">
-                [This section is ready for your video testimonials or impact
-                graphics showcasing the real stories and transformations
-                happening in your community]
-              </p>
-            </div>
-          </div>
+     {/* Testimonial Section */}
+<section className="py-20 bg-[#FDF1DC]">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-white p-12 rounded-3xl shadow-xl text-center">
+      <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        Voices from Our Community
+      </h2>
+      <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-8 rounded-2xl">
+        <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
+          <iframe
+            className="absolute top-0 left-0 w-full h-full rounded-xl"
+            src="https://www.youtube.com/embed/Cho67bwnOWk"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       <style jsx>{`
         @keyframes fade-in {

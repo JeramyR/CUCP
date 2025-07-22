@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const News = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -127,12 +127,12 @@ const News = () => {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-[#861c1c] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-black h-18 mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
               News & Events
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
@@ -144,8 +144,8 @@ const News = () => {
         </div>
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="py-8 bg-[#FDF1DC]">
+      {/* Sticky Search and Filter Section */}
+      <section className="py-8 bg-[#FDF1DC] sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
             {/* Search Bar */}
@@ -155,9 +155,9 @@ const News = () => {
                 placeholder="Search news and events..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-3 pl-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                className="bg-white w-full px-4 py-3 pl-12 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
               />
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="cursor-pointer absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
                 🔍
               </div>
             </div>
@@ -168,7 +168,7 @@ const News = () => {
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  className={`cursor-pointer px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                     activeFilter === filter.id
                       ? "bg-gradient-to-r from-orange-400 to-yellow-400 text-white shadow-lg"
                       : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
@@ -184,7 +184,7 @@ const News = () => {
 
       {/* Featured Items */}
       {featuredItems.length > 0 && (
-        <section className="py-16 bg-[#FDF1DC]">
+        <section className="py-16 bg-[#FDF1DC]" style={{ scrollMarginTop: '240px' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
               ⭐ Featured Stories
@@ -244,7 +244,7 @@ const News = () => {
       )}
 
       {/* Regular News Grid */}
-      <section className="py-16 bg-[#FDF1DC]">
+      <section className="py-16 bg-[#FDF1DC]" style={{ scrollMarginTop: '240px' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
             Latest Updates
@@ -322,7 +322,7 @@ const News = () => {
                 placeholder="Enter your email"
                 className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white"
               />
-              <button className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
+              <button className="cursor-pointer bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300">
                 Subscribe
               </button>
             </div>

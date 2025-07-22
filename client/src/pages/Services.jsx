@@ -16,10 +16,52 @@ const Services = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Dynamic offset calculation based on screen size
+      const isMobile = window.innerWidth < 768;
+      const navOffset = isMobile ? 180 : 240; // Reduced mobile offset for better positioning
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
       setActiveSection(sectionId);
     }
   };
+
+  // Intersection Observer to update active section based on scroll position
+  useEffect(() => {
+    const sections = services
+      .map((service) => document.getElementById(service.id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-180px 0px -50% 0px", // Adjusted root margin to match scroll offset
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
 
   const services = [
     {
@@ -36,6 +78,7 @@ const Services = () => {
       ],
       cta: "Book a Service",
       ctaLink: "/book-barber",
+      image: "../assets/join-the-cause.jpg",
     },
     {
       id: "space",
@@ -50,6 +93,7 @@ const Services = () => {
       ],
       cta: "Reserve Space",
       ctaLink: "/rent-space",
+      image: "../assets/space.jpg",
     },
     {
       id: "nutrition",
@@ -64,6 +108,7 @@ const Services = () => {
       ],
       cta: "Get Support",
       ctaLink: "/food-assistance",
+      image: "../assets/food.jpg",
     },
     {
       id: "reentry",
@@ -78,6 +123,7 @@ const Services = () => {
       ],
       cta: "Learn More",
       ctaLink: "/reentry-support",
+      image: "../assets/reentry.jpg",
     },
     {
       id: "employment",
@@ -92,6 +138,7 @@ const Services = () => {
       ],
       cta: "Start Today",
       ctaLink: "/employment-services",
+      image: "../assets/employment.jpg",
     },
   ];
 
@@ -99,10 +146,9 @@ const Services = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-[#861c1c] text-white">
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent leading-tight">
               Programs + Services
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
@@ -115,20 +161,23 @@ const Services = () => {
       </section>
 
       {/* Quick Navigation */}
-      <section className="py-8  bg-[#FDF1DC] sticky top-20 z-40">
+      <section className="py-4 md:py-8 bg-[#FDF1DC] sticky top-25 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4">
             {services.map((service) => (
               <button
                 key={service.id}
                 onClick={() => scrollToSection(service.id)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                className={`cursor-pointer px-3 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 text-sm md:text-base ${
                   activeSection === service.id
                     ? "bg-gradient-to-r from-orange-400 to-yellow-400 text-white shadow-lg"
                     : "bg-white text-gray-700 hover:bg-gray-100 shadow-md"
                 }`}
               >
-                {service.icon} {service.title}
+                <span className="hidden md:inline">{service.icon} </span>
+                <span className="md:hidden">{service.icon}</span>
+                <span className="hidden sm:inline">{service.title}</span>
+                <span className="sm:hidden">{service.title.split(" ")[0]}</span>
               </button>
             ))}
           </div>
@@ -136,59 +185,90 @@ const Services = () => {
       </section>
 
       {/* Services Sections */}
-      <div className="py-16">
+      <div className="py-8 md:py-16">
         {services.map((service, index) => (
           <section
             key={service.id}
             id={service.id}
-            className={`py-16  bg-[#FDF1DC]`}
+            className="py-12 md:py-16 bg-[#FDF1DC]"
+            style={{ scrollMarginTop: "180px" }} // Reduced CSS scroll-margin-top
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                 {/* Content */}
                 <div className={`${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <div className="text-6xl mb-6">{service.icon}</div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                  <div className="text-4xl md:text-6xl mb-4 md:mb-6">
+                    {service.icon}
+                  </div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
                     {service.title}
                   </h2>
-                  <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                  <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Features Grid */}
-                  <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
                     {service.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
-                        <span className="text-gray-700 font-medium">
+                        <div className="w-2 h-2 bg-orange-400 rounded-full flex-shrink-0"></div>
+                        <span className="text-gray-700 font-medium text-sm md:text-base">
                           {feature}
                         </span>
                       </div>
                     ))}
                   </div>
 
+                  {/* Image for Mobile - shows here on mobile only */}
+                  <div className="lg:hidden mb-6 md:mb-8">
+                    <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-3xl p-6 shadow-2xl transform hover:scale-105 transition-all duration-500">
+                      <div className="w-full rounded-2xl flex items-center justify-center">
+                        <div className="text-center text-white">
+                          <span className="text-lg font-medium">
+                            <img
+                              className="w-200 h-48 object-cover rounded-2xl"
+                              src={
+                                new URL(`${service.image}`, import.meta.url).href
+                              }
+                              alt={service.title}
+                            />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* CTA Button */}
-                  <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                     <a
                       href={service.ctaLink}
-                      className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-center"
+                      className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-center text-sm md:text-base"
                     >
                       {service.cta}
                     </a>
-                    <button className="inline-block border-2 border-orange-400 text-orange-400 px-8 py-4 rounded-full font-semibold hover:bg-orange-400 hover:text-white transition-all duration-300">
+                    <button className="cursor-pointer inline-block border-2 border-orange-400 text-orange-400 px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-orange-400 hover:text-white transition-all duration-300 text-sm md:text-base">
                       Learn More
                     </button>
                   </div>
                 </div>
 
-                {/* Image/Visual */}
-                <div className={`${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-3xl p-8 shadow-2xl transform hover:scale-105 transition-all duration-500">
-                    <div className="w-full h-80 bg-white/10 rounded-2xl flex items-center justify-center border-2 border-dashed border-white/30">
+                {/* Image/Visual for Desktop - hidden on mobile */}
+                <div
+                  className={`${
+                    index % 2 === 1 ? "lg:order-1" : ""
+                  } hidden lg:block`}
+                >
+                  <div className="bg-gradient-to-br from-orange-400 to-yellow-400 rounded-3xl p-6 md:p-8 shadow-2xl transform hover:scale-105 transition-all duration-500">
+                    <div className="w-full rounded-2xl flex items-center justify-center">
                       <div className="text-center text-white">
-                        <div className="text-4xl mb-4">{service.icon}</div>
                         <span className="text-lg font-medium">
-                          [{service.title} Image]
+                          <img
+                            className="w-200 h-85 object-cover rounded-2xl"
+                            src={
+                              new URL(`${service.image}`, import.meta.url).href
+                            }
+                            alt={service.title}
+                          />
                         </span>
                       </div>
                     </div>
@@ -201,27 +281,27 @@ const Services = () => {
       </div>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-orange-400">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-orange-400">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Have questions about our programs or want to learn more about how
               we can help? We're here to support you every step of the way.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
               <a
                 href="/contact"
-                className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base"
               >
                 Contact Us Today
               </a>
               <a
                 href="tel:+1-555-0123"
-                className="border-2 border-orange-400 text-orange-400 px-8 py-4 rounded-full font-semibold hover:bg-orange-400 hover:text-white transition-all duration-300"
+                className="border-2 border-orange-400 text-orange-400 px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-orange-400 hover:text-white transition-all duration-300 text-sm md:text-base"
               >
                 Call (555) 012-3456
               </a>
@@ -231,18 +311,20 @@ const Services = () => {
       </section>
 
       {/* Quick Links Footer */}
-      <section className="py-12  bg-[#FDF1DC]">
+      <section className="py-8 md:py-12 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
             {services.map((service) => (
               <div key={service.id} className="text-center">
-                <div className="text-3xl mb-3">{service.icon}</div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <div className="text-2xl md:text-3xl mb-2 md:mb-3">
+                  {service.icon}
+                </div>
+                <h3 className="text-gray-900 mb-2 text-sm md:text-base font-medium">
                   {service.title}
                 </h3>
                 <a
                   href={service.ctaLink}
-                  className="text-orange-500 hover:text-orange-600 font-medium"
+                  className="text-orange-500 hover:text-orange-600 font-medium text-sm"
                 >
                   {service.cta} →
                 </a>
