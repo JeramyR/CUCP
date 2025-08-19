@@ -1,5 +1,5 @@
 body {
- background-color: black;
+ background-color: #2B2B2B;
  font-family: "Archivo Black", sans-serif;
  width: 100%;
 }
@@ -8,4 +8,8 @@ body {
   font-family: "Archivo Black", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.your-div {
+    background: linear-gradient(to bottom, #FDF1DC 0%, #861C1C 7%, #2B2B2B 50%, #861C1C 93%, #FDF1DC 100%);
 }

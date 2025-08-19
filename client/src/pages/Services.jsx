@@ -145,7 +145,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-[#861c1c] text-white">
+      <section className="h-125 pt-24 pb-16 bg-gradient-to-b from-[#2B2B2B] from-5% via-[#861C1C] via-80% via-[#A52A2A] via-15% to-[#FDF1DC] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent leading-tight">
@@ -228,7 +228,8 @@ const Services = () => {
                             <img
                               className="w-200 h-48 object-cover rounded-2xl"
                               src={
-                                new URL(`${service.image}`, import.meta.url).href
+                                new URL(`${service.image}`, import.meta.url)
+                                  .href
                               }
                               alt={service.title}
                             />
@@ -281,7 +282,7 @@ const Services = () => {
       </div>
 
       {/* Contact Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-[#FDF1DC] via-[#861C1C] via-15% to-[#2B2B2B] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-orange-400">
@@ -306,30 +307,6 @@ const Services = () => {
                 Call (555) 012-3456
               </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Links Footer */}
-      <section className="py-8 md:py-12 bg-[#FDF1DC]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8">
-            {services.map((service) => (
-              <div key={service.id} className="text-center">
-                <div className="text-2xl md:text-3xl mb-2 md:mb-3">
-                  {service.icon}
-                </div>
-                <h3 className="text-gray-900 mb-2 text-sm md:text-base font-medium">
-                  {service.title}
-                </h3>
-                <a
-                  href={service.ctaLink}
-                  className="text-orange-500 hover:text-orange-600 font-medium text-sm"
-                >
-                  {service.cta} →
-                </a>
-              </div>
-            ))}
           </div>
         </div>
       </section>

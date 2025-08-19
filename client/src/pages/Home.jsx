@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="min-h-screen bg-[#861c1c] flex items-center relative overflow-hidden">
+      <section className="min-h-screen bg-gradient-to-b from-[#2B2B2B] from-5% via-[#861C1C] via-80% via-[#A52A2A] via-15% to-[#FDF1DC] flex items-center relative overflow-hidden">
         {/* <div className="absolute inset-0 bg-black/40 z-10"></div> */}
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20 relative">
@@ -100,7 +100,7 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-400">
+            <div className="bg-white p-8 rounded-3xl shadow-lg shadow-[#861C1C] hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-[#2B2B2B]">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Our Story, Our Mission
               </h3>
@@ -112,7 +112,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-400">
+            <div className="bg-white p-8 rounded-3xl shadow-lg shadow-[#861C1C] hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-400">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Our Vision for a Better Tomorrow
               </h3>
@@ -125,7 +125,7 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-400 md:col-span-2 lg:col-span-1">
+            <div className="bg-white p-8 rounded-3xl shadow-lg shadow-[#861C1C] hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 border-t-4 border-orange-400 md:col-span-2 lg:col-span-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 The Vision Behind the Cut
               </h3>
@@ -149,100 +149,157 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section
-        id="involved"
-        className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white"
-      >
+       {/* Testimonial Section with Larger Videos */}
+      <section className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-400">
-              Ready for Your Fresh Start?
+          <div className="bg-white p-12 rounded-3xl shadow-lg shadow-[#861C1C]">
+            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+              Voices from Our Community
             </h2>
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-              "Cut with a Cause": Book a service to empower others. For
-              community members in need, access free sessions for food,
-              employment, or reentry support.
-            </p>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Video 1 - Larger */}
+              <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-8 rounded-2xl">
+                <div
+                  className="relative w-full"
+                  style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}
+                >
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    src="https://www.youtube.com/embed/Cho67bwnOWk"
+                    title="YouTube video player 1"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-orange-400">
-                Your Cut. Our Cause.
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Book a barbering or cosmetology service and directly support our
-                programs. If you need help, you can also book sessions for
-                workforce development, SNAP benefits, and more.
-              </p>
-              <a
-                href="/book-services"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                Book Now
-              </a>
+              {/* Video 2 - Larger */}
+              <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-8 rounded-2xl">
+                <div
+                  className="relative w-full"
+                  style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}
+                >
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    src="https://www.youtube.com/embed/62F2MThkDsA"
+                    title="YouTube video player 2"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
-
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-orange-400">
-                Join the Crew.
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Stay sharpe! Sign up for our newsletter to get inspiring
-                stories, program updates, and see the real impact unfolding in
-                our community.
-              </p>
-              <a
-                href="/newsletter-signup"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                Join our Crew
-              </a>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center">
-              <h3 className="text-2xl font-bold mb-4 text-orange-400">
-                Help Us Cut Through Barriers.
-              </h3>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                Your donation helps us provide training, mentorship, and vital
-                services, giving powerful second chances.
-              </p>
-              <a
-                href="/donate"
-                className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full  hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-              >
-                Donate Today
-              </a>
+            {/* Video 3 - Full width for emphasis */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-8 rounded-2xl">
+                <div
+                  className="relative w-full"
+                  style={{ paddingBottom: "56.25%" /* 16:9 aspect ratio */ }}
+                >
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full rounded-xl"
+                    src="https://www.youtube.com/embed/mafs6NpS_2o"
+                    title="YouTube video player 3"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-     {/* Testimonial Section */}
-<section className="py-20 bg-[#FDF1DC]">
-  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="bg-white p-12 rounded-3xl shadow-xl text-center">
-      <h2 className="text-4xl font-bold text-gray-900 mb-8">
-        Voices from Our Community
+      {/* CTA Section */}
+<section
+  id="involved"
+  className="py-40 bg-gradient-to-b from-[#FDF1DC] via-[#861C1C] via-17% to-[#2B2B2B] text-white"
+>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-400">
+        Ready for Your Fresh Start?
       </h2>
-      <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-8 rounded-2xl">
-        <div className="relative w-full" style={{ paddingBottom: '56.25%' /* 16:9 aspect ratio */ }}>
-          <iframe
-            className="absolute top-0 left-0 w-full h-full rounded-xl"
-            src="https://www.youtube.com/embed/Cho67bwnOWk"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+      <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+        "Cut with a Cause": Book a service to empower others. For
+        community members in need, access free sessions for food,
+        employment, or reentry support.
+      </p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+        <div className="flex-grow">
+          <h3 className="text-2xl font-bold mb-4 text-orange-400">
+            Your Cut. Our Cause.
+          </h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
+            Book a barbering or cosmetology service and directly support our
+            programs. If you need help, you can also book sessions for
+            workforce development, SNAP benefits, and more.
+          </p>
+        </div>
+        <div className="mt-auto">
+          <a
+            href="/book-services"
+            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Book Now
+          </a>
+        </div>
+      </div>
+      
+      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+        <div className="flex-grow">
+          <h3 className="text-2xl font-bold mb-4 text-orange-400">
+            Join the Crew.
+          </h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
+            Stay sharpe! Sign up for our newsletter to get inspiring
+            stories, program updates, and see the real impact unfolding in
+            our community.
+          </p>
+        </div>
+        <div className="mt-auto">
+          <a
+            href="/newsletter-signup"
+            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Join Us
+          </a>
+        </div>
+      </div>
+      
+      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+        <div className="flex-grow">
+          <h3 className="text-2xl font-bold mb-4 text-orange-400">
+            Help Us Cut Through Barriers.
+          </h3>
+          <p className="text-gray-300 mb-6 leading-relaxed">
+            Your donation helps us provide training, mentorship, and vital
+            services, giving powerful second chances.
+          </p>
+        </div>
+        <div className="mt-auto">
+          <a
+            href="/donate"
+            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Donate Today
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+     
 
       <style jsx>{`
         @keyframes fade-in {

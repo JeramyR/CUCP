@@ -1,17 +1,14 @@
-import { useNavigate, Link } from "react-router";
+import { Link } from "react-router";
 import {
   Users,
   Heart,
   Scissors,
-  Target,
-  Eye,
   MapPin,
   Calendar,
   Award,
 } from "lucide-react";
 
 const AboutUs = () => {
-  const navigate = useNavigate();
 
   const handleNavClick = () => {
     window.scrollTo({
@@ -24,7 +21,7 @@ const AboutUs = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
 
-      <section className="pt-24 pb-16 bg-[#861c1c] text-white">
+      <section className="h-125 pt-24 pb-16 bg-gradient-to-b from-[#2B2B2B] from-5% via-[#861C1C] via-80% via-[#A52A2A] via-15% to-[#FDF1DC] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black h-18 mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
@@ -43,14 +40,14 @@ const AboutUs = () => {
       <section className="py-12 sm:py-16 bg-[#FDF1DC]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className=" p-6 sm:p-8 rounded-2xl shadow-lg shadow-[#861C1C]  border-t-4 border-[#2B2B2B]">
               <div className="flex items-center mb-4 sm:mb-6">
-                <Target
+                {/* <Target
                   className="text-blue-600 mr-3 sm:mr-4 flex-shrink-0"
                   size={28}
-                />
+                /> */}
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                  Our Mission
+                  🔥Our Mission
                 </h2>
               </div>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -62,14 +59,14 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 sm:p-8 rounded-2xl shadow-lg">
+            <div className="p-6 sm:p-8 rounded-2xl shadow-lg shadow-[#861C1C]  border-t-4 border-[#2B2B2B]">
               <div className="flex items-center mb-4 sm:mb-6">
-                <Eye
+                {/* <Eye
                   className="text-purple-600 mr-3 sm:mr-4 flex-shrink-0"
                   size={28}
-                />
+                /> */}
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                  Our Vision
+                 🧘 Our Vision
                 </h2>
               </div>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -108,14 +105,14 @@ const AboutUs = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-l-4 border-blue-500">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-l-4 border-orange-400">
               <div className="flex items-center mb-4 sm:mb-6">
-                <Scissors
+                {/* <Scissors
                   className="text-blue-600 mr-3 sm:mr-4 flex-shrink-0"
                   size={24}
-                />
+                /> */}
                 <h3 className="text-lg sm:text-2xl font-bold text-gray-800 leading-tight">
-                  "Cut with a Cause" Services
+                 ✂️ "Cut with a Cause" Services
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
@@ -126,14 +123,14 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-l-4 border-green-500">
+            <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border-l-4 border-orange-400">
               <div className="flex items-center mb-4 sm:mb-6">
-                <Heart
+                {/* <Heart
                   className="text-green-600 mr-3 sm:mr-4 flex-shrink-0"
                   size={24}
-                />
+                /> */}
                 <h3 className="text-lg sm:text-2xl font-bold text-gray-800 leading-tight">
-                  Comprehensive Community Support
+                🤝  Comprehensive Community Support
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
@@ -145,7 +142,7 @@ const AboutUs = () => {
               <ul className="space-y-2 text-gray-700 text-sm sm:text-base">
                 <li className="flex items-start">
                   <Award
-                    className="text-green-500 mr-2 mt-1 flex-shrink-0"
+                    className="text-[#247C74] mr-2 mt-1 flex-shrink-0"
                     size={16}
                   />
                   <span>
@@ -155,7 +152,7 @@ const AboutUs = () => {
                 </li>
                 <li className="flex items-start">
                   <Users
-                    className="text-green-500 mr-2 mt-1 flex-shrink-0"
+                    className="text-[#247C74] mr-2 mt-1 flex-shrink-0"
                     size={16}
                   />
                   <span>
@@ -165,7 +162,7 @@ const AboutUs = () => {
                 </li>
                 <li className="flex items-start">
                   <MapPin
-                    className="text-green-500 mr-2 mt-1 flex-shrink-0"
+                    className="text-[#247C74] mr-2 mt-1 flex-shrink-0"
                     size={16}
                   />
                   <span>
@@ -187,7 +184,7 @@ const AboutUs = () => {
             <Link
               to="/services"
               onClick={handleNavClick}
-              className="inline-block w-full sm:w-auto cursor-pointer bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-colors text-base font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 duration-200"
+              className="inline-block w-full sm:w-auto cursor-pointer bg-[#247C74] hover:bg-[#247C74]  px-8 py-4 transition-colors text-base hover:shadow-xl transform hover:scale-105  bg-gradient-to-r from-orange-400 to-yellow-400 text-white rounded-full shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 cursor-pointer"
             >
               Learn More About Our Programs & Services
             </Link>
@@ -209,7 +206,7 @@ const AboutUs = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div className="order-2 md:order-1">
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 sm:p-8 rounded-2xl">
+              <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-6 sm:p-8 rounded-2xl">
                 <div className="flex items-center mb-4 sm:mb-6">
                   <Calendar
                     className="text-blue-600 mr-3 flex-shrink-0"
@@ -245,7 +242,7 @@ const AboutUs = () => {
               <div className="bg-gray-200 rounded-2xl h-64 sm:h-80 flex items-center justify-center">
                 <div className="text-center">
                   <img
-                    className="w-full object-cover rounded-2xl"
+                    className="w-full object-cover rounded-2xl  shadow-2xl shadow-[#861C1C]"
                     src={new URL("../assets/brian.jpg", import.meta.url).href}
                   ></img>
                 </div>
@@ -253,7 +250,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="mt-8 sm:mt-12 bg-gradient-to-r from-purple-50 to-blue-50 p-6 sm:p-8 rounded-2xl">
+          <div className="mt-8 sm:mt-12 bg-gradient-to-r from-orange-400 to-yellow-400 p-6 sm:p-8 rounded-2xl">
             <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
               In the months that followed, Brian began collaborating with local
               and national organizations who shared his vision. Among the most

@@ -129,7 +129,7 @@ const News = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-[#861c1c] text-white">
+      <section className="pt-24 pb-16 h-125 bg-gradient-to-b from-[#2B2B2B] from-5% via-[#861C1C] via-80% via-[#A52A2A] via-15% to-[#FDF1DC] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-black h-18 mb-6 bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">
@@ -304,7 +304,7 @@ const News = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 bg-[#861c1c] text-white">
+      <section className="py-20 bg-gradient-to-b from-[#FDF1DC] via-[#861C1C] via-17% to-[#2B2B2B] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-6 text-orange-400">

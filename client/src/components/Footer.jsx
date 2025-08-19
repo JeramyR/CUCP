@@ -9,7 +9,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white px-6 py-12">
+    <footer className="bg-[#2B2B2B] text-white px-6 py-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Brand & Description */}
         <div>
@@ -36,9 +36,14 @@ const Footer = () => {
         <div>
           <h3 className="text-sm font-semibold mb-4">GET IN TOUCH</h3>
           <p className="text-xs mb-4">
+            1641 E MCDOWELL RD
+            <br/>
+            PHOENIX, AZ 85006
+            <br/>
+            <br/>
             MON–FRIDAY
             <br />
-            10AM–4PM EST
+            9AM–5PM 
           </p>
           <ul className="text-xs space-y-2">
             <li>
