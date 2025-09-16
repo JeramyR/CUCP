@@ -1,15 +1,7 @@
 import { Link } from "react-router";
-import {
-  Users,
-  Heart,
-  Scissors,
-  MapPin,
-  Calendar,
-  Award,
-} from "lucide-react";
+import { Users, Heart, Scissors, MapPin, Calendar, Award } from "lucide-react";
 
 const AboutUs = () => {
-
   const handleNavClick = () => {
     window.scrollTo({
       top: 0,
@@ -61,12 +53,8 @@ const AboutUs = () => {
 
             <div className="p-6 sm:p-8 rounded-2xl shadow-lg shadow-[#861C1C]  border-t-4 border-[#2B2B2B]">
               <div className="flex items-center mb-4 sm:mb-6">
-                {/* <Eye
-                  className="text-purple-600 mr-3 sm:mr-4 flex-shrink-0"
-                  size={28}
-                /> */}
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                 🧘 Our Vision
+                  🧘 Our Vision
                 </h2>
               </div>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
@@ -112,7 +100,7 @@ const AboutUs = () => {
                   size={24}
                 /> */}
                 <h3 className="text-lg sm:text-2xl font-bold text-gray-800 leading-tight">
-                 ✂️ "Cut with a Cause" Services
+                  ✂️ "Cut with a Cause" Services
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
@@ -130,7 +118,7 @@ const AboutUs = () => {
                   size={24}
                 /> */}
                 <h3 className="text-lg sm:text-2xl font-bold text-gray-800 leading-tight">
-                🤝  Comprehensive Community Support
+                  🤝 Comprehensive Community Support
                 </h3>
               </div>
               <p className="text-gray-700 leading-relaxed mb-4 text-sm sm:text-base">
