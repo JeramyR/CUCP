@@ -77,7 +77,7 @@ const Services = () => {
         "Client Services",
       ],
       cta: "Book a Service",
-      ctaLink: "/book-barber",
+      ctaLink: "https://cuttinupphx.setmore.com",
       image: "../assets/join-the-cause.jpg",
     },
     {
@@ -107,7 +107,8 @@ const Services = () => {
         "Meal Planning",
       ],
       cta: "Get Support",
-      ctaLink: "/food-assistance",
+      ctaLink:
+        "https://cuttinupphx.setmore.com/services/e029d77e-8f69-41b9-881e-3a5274a13e2b",
       image: "../assets/food.jpg",
     },
     {
@@ -121,8 +122,9 @@ const Services = () => {
         "Mentorship Programs",
         "Resource Navigation",
       ],
-      cta: "Learn More",
-      ctaLink: "/reentry-support",
+      cta: "Get Help",
+      ctaLink:
+        "https://cuttinupphx.setmore.com/services/1c3d5909-4b8e-4b48-887c-435bfc717ef4",
       image: "../assets/reentry.jpg",
     },
     {
@@ -137,7 +139,8 @@ const Services = () => {
         "Professional Skills",
       ],
       cta: "Start Today",
-      ctaLink: "/employment-services",
+      ctaLink:
+        "https://cuttinupphx.setmore.com/services/21c2e694-e1f0-4d9a-a752-ff0af669fe2c",
       image: "../assets/employment.jpg",
     },
   ];

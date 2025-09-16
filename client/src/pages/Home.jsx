@@ -149,7 +149,7 @@ const Home = () => {
         </div>
       </section>
 
-       {/* Testimonial Section with Larger Videos */}
+      {/* Testimonial Section with Larger Videos */}
       <section className="py-20 bg-[#FDF1DC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white p-12 rounded-3xl shadow-lg shadow-[#861C1C]">
@@ -217,89 +217,87 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-<section
-  id="involved"
-  className="py-40 bg-gradient-to-b from-[#FDF1DC] via-[#861C1C] via-17% to-[#2B2B2B] text-white"
->
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-400">
-        Ready for Your Fresh Start?
-      </h2>
-      <p className="text-xl text-gray-300 max-w-4xl mx-auto">
-        "Cut with a Cause": Book a service to empower others. For
-        community members in need, access free sessions for food,
-        employment, or reentry support.
-      </p>
-    </div>
-    
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
-        <div className="flex-grow">
-          <h3 className="text-2xl font-bold mb-4 text-orange-400">
-            Your Cut. Our Cause.
-          </h3>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            Book a barbering or cosmetology service and directly support our
-            programs. If you need help, you can also book sessions for
-            workforce development, SNAP benefits, and more.
-          </p>
-        </div>
-        <div className="mt-auto">
-          <a
-            href="/book-services"
-            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Book Now
-          </a>
-        </div>
-      </div>
-      
-      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
-        <div className="flex-grow">
-          <h3 className="text-2xl font-bold mb-4 text-orange-400">
-            Join the Crew.
-          </h3>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            Stay sharpe! Sign up for our newsletter to get inspiring
-            stories, program updates, and see the real impact unfolding in
-            our community.
-          </p>
-        </div>
-        <div className="mt-auto">
-          <a
-            href="/newsletter-signup"
-            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Join Us
-          </a>
-        </div>
-      </div>
-      
-      <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
-        <div className="flex-grow">
-          <h3 className="text-2xl font-bold mb-4 text-orange-400">
-            Help Us Cut Through Barriers.
-          </h3>
-          <p className="text-gray-300 mb-6 leading-relaxed">
-            Your donation helps us provide training, mentorship, and vital
-            services, giving powerful second chances.
-          </p>
-        </div>
-        <div className="mt-auto">
-          <a
-            href="/donate"
-            className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-          >
-            Donate Today
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      <section
+        id="involved"
+        className="py-40 bg-gradient-to-b from-[#FDF1DC] via-[#861C1C] via-17% to-[#2B2B2B] text-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-orange-400">
+              Ready for Your Fresh Start?
+            </h2>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto">
+              "Cut with a Cause": Book a service to empower others. For
+              community members in need, access free sessions for food,
+              employment, or reentry support.
+            </p>
+          </div>
 
-     
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+              <div className="flex-grow">
+                <h3 className="text-2xl font-bold mb-4 text-orange-400">
+                  Your Cut. Our Cause.
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Book a barbering or cosmetology service and directly support
+                  our programs. If you need help, you can also book sessions for
+                  workforce development, SNAP benefits, and more.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <a
+                  href="https://cuttinupphx.setmore.com"
+                  className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  Book Now
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+              <div className="flex-grow">
+                <h3 className="text-2xl font-bold mb-4 text-orange-400">
+                  Join the Crew.
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Stay sharpe! Sign up for our newsletter to get inspiring
+                  stories, program updates, and see the real impact unfolding in
+                  our community.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <a
+                  href="/newsletter-signup"
+                  className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  Join Us
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 hover:bg-white/15 transform hover:-translate-y-2 transition-all duration-300 text-center h-full flex flex-col">
+              <div className="flex-grow">
+                <h3 className="text-2xl font-bold mb-4 text-orange-400">
+                  Help Us Cut Through Barriers.
+                </h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  Your donation helps us provide training, mentorship, and vital
+                  services, giving powerful second chances.
+                </p>
+              </div>
+              <div className="mt-auto">
+                <a
+                  href="/donate"
+                  className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  Donate Today
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <style jsx>{`
         @keyframes fade-in {
