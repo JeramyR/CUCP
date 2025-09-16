@@ -92,7 +92,7 @@ const Services = () => {
         "Flexible Booking",
       ],
       cta: "Reserve Space",
-      ctaLink: "/rent-space",
+      ctaLink: "https://www.peerspace.com/mylistings",
       image: "../assets/space.jpg",
     },
     {
@@ -292,24 +292,9 @@ const Services = () => {
               Ready to Get Started?
             </h2>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Have questions about our programs or want to learn more about how
-              we can help? We're here to support you every step of the way.
+              {`Have questions about our programs or want to learn more about how
+              we can help? We're here to support you every step of the way.`}
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-              <a
-                href="/contact"
-                className="bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-sm md:text-base"
-              >
-                Contact Us Today
-              </a>
-              <a
-                href="tel:+1-555-0123"
-                className="border-2 border-orange-400 text-orange-400 px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-orange-400 hover:text-white transition-all duration-300 text-sm md:text-base"
-              >
-                Call (555) 012-3456
-              </a>
-            </div>
           </div>
         </div>
       </section>

@@ -376,12 +376,12 @@ const Navbar = () => {
           {/* Left: Book Appointment Button */}
           <div className="flex-1">
             <div className="hover:scale-105 transition-transform duration-300">
-              <button
-                onClick={() => handleNavigation("/book-appointment")}
+              <a
+                href="https://cuttinupphx.setmore.com"
                 className="relative bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-6 py-3 rounded-full text-sm shadow-lg hover:shadow-xl hover:from-yellow-400 hover:to-orange-400 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-opacity-50 cursor-pointer"
               >
                 Book Appointment
-              </button>
+              </a>
             </div>
           </div>
 
@@ -493,29 +493,33 @@ const Navbar = () => {
         {/* Curtain Dropdown Menu */}
         <div
           className={`fixed left-0 right-0 bg-gradient-to-b from-[#2B2B2B] from-5% via-[#861C1C] via-80% via-[#A52A2A] via-15% to-[#FDF1DC] z-40 text-white shadow-2xl overflow-hidden transition-all duration-700 ease-in-out border-0 outline-0`}
-          style={{ 
+          style={{
             top: `${NAVBAR_HEIGHT - 1}px`,
-            height: isOpen ? `calc(100vh - ${NAVBAR_HEIGHT - 1}px)` : '0px',
-            transform: isOpen ? 'scaleY(1)' : 'scaleY(0)',
-            transformOrigin: 'top',
-            border: 'none',
-            outline: 'none'
+            height: isOpen ? `calc(100vh - ${NAVBAR_HEIGHT - 1}px)` : "0px",
+            transform: isOpen ? "scaleY(1)" : "scaleY(0)",
+            transformOrigin: "top",
+            border: "none",
+            outline: "none",
           }}
         >
-          <div className={`flex flex-col items-center pt-12 space-y-8 transition-all duration-500 delay-200 ${
-            isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
-          }`}>
+          <div
+            className={`flex flex-col items-center pt-12 space-y-8 transition-all duration-500 delay-200 ${
+              isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+            }`}
+          >
             {/* Mobile Navigation Links */}
             <ul className="flex flex-col items-center text-xl space-y-6">
               {navLinks.map((link, index) => (
-                <Link 
-                  key={link.to} 
-                  to={link.to} 
+                <Link
+                  key={link.to}
+                  to={link.to}
                   className={`cursor-pointer transform transition-all duration-500 ${
-                    isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    isOpen
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-4"
                   }`}
                   style={{
-                    transitionDelay: isOpen ? `${300 + (index * 100)}ms` : '0ms'
+                    transitionDelay: isOpen ? `${300 + index * 100}ms` : "0ms",
                   }}
                 >
                   <button
@@ -536,12 +540,14 @@ const Navbar = () => {
             </ul>
 
             {/* Mobile Book Appointment Button */}
-            <div 
+            <div
               className={`mt-8 transform transition-all duration-500 ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{
-                transitionDelay: isOpen ? `${300 + (navLinks.length * 100)}ms` : '0ms'
+                transitionDelay: isOpen
+                  ? `${300 + navLinks.length * 100}ms`
+                  : "0ms",
               }}
             >
               <button
@@ -553,12 +559,14 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Contact Info */}
-            <div 
+            <div
               className={`mt-8 text-center text-gray-300 transform transition-all duration-500 ${
-                isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
               style={{
-                transitionDelay: isOpen ? `${300 + ((navLinks.length + 1) * 100)}ms` : '0ms'
+                transitionDelay: isOpen
+                  ? `${300 + (navLinks.length + 1) * 100}ms`
+                  : "0ms",
               }}
             >
               <p className="text-sm">Ready for a fresh start?</p>
@@ -570,8 +578,6 @@ const Navbar = () => {
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
       <div className="h-[105px]"></div>
-
-
     </header>
   );
 };

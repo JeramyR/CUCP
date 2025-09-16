@@ -288,7 +288,7 @@ const Home = () => {
               </div>
               <div className="mt-auto">
                 <a
-                  href="/donate"
+                  href="https://givebutter.com/ywmoe5?fbclid=PAZXh0bgNhZW0CMTEAAaeCvCoZ5i-bv06Zwq-iIHK0hTlkMpyRh8XE21M9kNqujND0QxueCKuh8CrkMQ_aem_TQdDX2z_ASiXX0y9YeiwKQ"
                   className="inline-block bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-8 py-3 rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
                 >
                   Donate Today
